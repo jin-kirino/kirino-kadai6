@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var correctNumber: Int = 0
+    @State private var currentValue: Double = 50.0
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("\(correctNumber)")
+            Text("現在の値は、\(currentValue)")
+                .font(.largeTitle)
+            Slider(value: $currentValue,
+                   in: 0 ... 100)
         }
-        .padding()
     }
 }
 
