@@ -15,9 +15,18 @@ struct ContentView: View {
         VStack {
             Text("\(correctNumber)")
             Text("現在の値は、\(currentValue)")
-                .font(.largeTitle)
-            Slider(value: $currentValue,
-                   in: 0 ... 100)
+            Slider(value: $currentValue, in: 0 ... 100)
+            HStack {
+                Text("0")
+                Spacer()
+                Text("100")
+            }
+            Button {
+                print("判定ボタンがタップされたよ！")
+            } label: {
+                Text("判定！")
+            }
+
         }
     }
 }
