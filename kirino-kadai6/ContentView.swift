@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var correctNumber: Int = 0
+    @State private var correctNumber: Int = 33
     @State private var currentValue: Double = 50.0
 
     var body: some View {
         VStack {
             Text("\(correctNumber)")
-            Text("現在の値は、\(currentValue)")
+                .font(.largeTitle)
+                .padding(.bottom, 70.0)
+//            Text("現在の値は、\(currentValue)")
             Slider(value: $currentValue, in: 0 ... 100)
             HStack {
-                Text("0")
+                Text("1")
                 Spacer()
                 Text("100")
             }
@@ -26,8 +28,10 @@ struct ContentView: View {
             } label: {
                 Text("判定！")
             }
-
+            .padding(.top, 30.0)
+            Spacer()
         }
+        .padding()
     }
 }
 
