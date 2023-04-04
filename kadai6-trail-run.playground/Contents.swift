@@ -14,3 +14,12 @@ for _ in 1...100 {
     arc4random_uniform(100)
     print(arc4random_uniform(100))
 }
+
+let num:Double = 5.6
+let ceilNum = ceil(num)
+let floorNum = floor(num)
+let roundNum = round(num)
+print(type(of: ceilNum))
+print(type(of: floorNum))
+print(type(of: roundNum))
+print(roundNum)
