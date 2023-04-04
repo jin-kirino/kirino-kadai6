@@ -30,6 +30,7 @@ struct ContentView: View {
                 print("正解の値：\(correctNumber)")
                 print("スライダーの値：\(currentValue)")
                 isShowingAlert = true
+                isCheckedNumber()
             } label: {
                 Text("判定！")
             }
@@ -39,6 +40,7 @@ struct ContentView: View {
         .alert("結果", isPresented: $isShowingAlert) {
             Button("再挑戦") {
                 correctNumber = Int.random(in: 0 ..< 100)
+                currentValue = 50.0
             }
         } message: {
             Text("\(alertMessage)")
@@ -46,6 +48,15 @@ struct ContentView: View {
         .padding()
         .onAppear {
             correctNumber = Int.random(in: 1 ... 100)
+        }
+    }
+
+    private func isCheckedNumber() {
+        let roundNumber = round(currentValue)
+        if roundNumber == Double(correctNumber) {
+            alertMessage = "あたり！\nあなたの値：\(roundNumber)"
+        } else {
+            alertMessage = "はずれ！\nあなたの値：\(roundNumber)"
         }
     }
 }
