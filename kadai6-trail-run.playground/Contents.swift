@@ -15,7 +15,7 @@ for _ in 1...100 {
     print(arc4random_uniform(100))
 }
 
-let num:Double = 5.6
+let num: Double = 5.6
 let ceilNum = ceil(num)
 let floorNum = floor(num)
 let roundNum = round(num)
