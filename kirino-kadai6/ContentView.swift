@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var correctNumber: Int = 33
+    @State private var correctNumber: Int = 0
     @State private var currentValue: Double = 50.0
     @State private var isShowingAlert: Bool = false
     @State private var alertMessage: String = ""
@@ -25,7 +25,6 @@ struct ContentView: View {
                 Text("100")
             }
             Button {
-                isShowingAlert = true
                 isCheckedNumber()
             } label: {
                 Text("判定！")
@@ -48,6 +47,7 @@ struct ContentView: View {
     }
 
     private func isCheckedNumber() {
+        isShowingAlert = true
         let roundNumber = round(currentValue)
         if roundNumber == Double(correctNumber) {
             alertMessage = "あたり！\nあなたの値：\(Int(roundNumber))"
