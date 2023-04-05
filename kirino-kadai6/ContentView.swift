@@ -54,9 +54,9 @@ struct ContentView: View {
     private func isCheckedNumber() {
         let roundNumber = round(currentValue)
         if roundNumber == Double(correctNumber) {
-            alertMessage = "あたり！\nあなたの値：\(roundNumber)"
+            alertMessage = "あたり！\nあなたの値：\(Int(roundNumber))"
         } else {
-            alertMessage = "はずれ！\nあなたの値：\(roundNumber)"
+            alertMessage = "はずれ！\nあなたの値：\(Int(roundNumber))"
         }
     }
 }
