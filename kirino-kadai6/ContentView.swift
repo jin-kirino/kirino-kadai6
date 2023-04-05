@@ -34,8 +34,7 @@ struct ContentView: View {
         }
         .alert("結果", isPresented: $isShowingAlert) {
             Button("再挑戦") {
-                correctNumber = Int.random(in: 0 ..< 100)
-                currentValue = 50.0
+                didTapRetryButtonAction()
             }
         } message: {
             Text("\(alertMessage)")
@@ -45,7 +44,7 @@ struct ContentView: View {
             correctNumber = Int.random(in: 1 ... 100)
         }
     }
-
+    
     private func isCheckedNumber() {
         isShowingAlert = true
         let roundNumber = round(currentValue)
@@ -54,6 +53,11 @@ struct ContentView: View {
         } else {
             alertMessage = "はずれ！\nあなたの値：\(Int(roundNumber))"
         }
+    }
+    
+    private func didTapRetryButtonAction() {
+        correctNumber = Int.random(in: 0 ..< 100)
+        currentValue = 50.0
     }
 }
 
