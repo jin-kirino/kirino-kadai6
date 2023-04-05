@@ -18,7 +18,6 @@ struct ContentView: View {
             Text("\(correctNumber)")
                 .font(.largeTitle)
                 .padding(.bottom, 70.0)
-            Text("現在の値は、\(currentValue)")
             Slider(value: $currentValue, in: 0...100)
             HStack {
                 Text("1")
@@ -26,9 +25,6 @@ struct ContentView: View {
                 Text("100")
             }
             Button {
-                print("判定ボタンがタップされたよ！")
-                print("正解の値：\(correctNumber)")
-                print("スライダーの値：\(currentValue)")
                 isShowingAlert = true
                 isCheckedNumber()
             } label: {
