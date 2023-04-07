@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var correctNumber: Int = 0
+    @State private var correctNumber: Int = Int.random(in: 1 ... 100)
     @State private var currentValue: Double = 50.0
     @State private var isShowingAlert: Bool = false
     @State private var alertMessage: String = ""
@@ -18,7 +18,7 @@ struct ContentView: View {
             Text("\(correctNumber)")
                 .font(.largeTitle)
                 .padding(.bottom, 70.0)
-            Slider(value: $currentValue, in: 0...100)
+            Slider(value: $currentValue, in: 1...100)
             HStack {
                 Text("1")
                 Spacer()
@@ -40,23 +40,20 @@ struct ContentView: View {
             Text("\(alertMessage)")
         }
         .padding()
-        .onAppear {
-            correctNumber = Int.random(in: 1 ... 100)
-        }
     }
-    
+
     private func isCheckedNumber() {
         isShowingAlert = true
-        let roundNumber = round(currentValue)
-        if roundNumber == Double(correctNumber) {
-            alertMessage = "あたり！\nあなたの値：\(Int(roundNumber))"
+        let roundNumber = Int(currentValue)
+        if roundNumber == correctNumber {
+            alertMessage = "あたり！\nあなたの値：\(roundNumber)"
         } else {
-            alertMessage = "はずれ！\nあなたの値：\(Int(roundNumber))"
+            alertMessage = "はずれ！\nあなたの値：\(roundNumber)"
         }
     }
-    
+
     private func didTapRetryButtonAction() {
-        correctNumber = Int.random(in: 0 ..< 100)
+        correctNumber = Int.random(in: 1 ... 100)
         currentValue = 50.0
     }
 }
